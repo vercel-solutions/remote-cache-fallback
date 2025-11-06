@@ -12,8 +12,6 @@ export async function getDataFromDrupal(id: string, nofail?: boolean) {
 }
 
 export async function getCachedDataFromDrupal(id: string) {
-  "use cache: remote";
-
   const data = await getDataFromDrupal(id, true);
 
   console.log("CACHED");
