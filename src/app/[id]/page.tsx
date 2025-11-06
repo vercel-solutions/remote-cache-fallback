@@ -21,6 +21,10 @@ async function DynamicData({id}: {id: string}) {
   return <div>Dynamic data: {data.date}</div>;
 }
 
+export async function generateStaticParams() {
+  return [{id: "__fake__"}];
+}
+
 export default async function IdPage({params}: {params: Promise<{id: string}>}) {
   const {id} = await params;
 
