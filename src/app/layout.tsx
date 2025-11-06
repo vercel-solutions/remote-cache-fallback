@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
+      {/* This empty suspense boundary blocks the render until the server is done doing its job */}
       <Suspense>
         <body className="container m-auto grid min-h-screen grid-rows-[auto_1fr_auto] gap-8 px-4 font-sans antialiased">
           <header className="flex items-center justify-between text-xl leading-16 font-bold">
