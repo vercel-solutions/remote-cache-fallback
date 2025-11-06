@@ -7,7 +7,6 @@ import {getCachedDataFromDrupal, getDataFromDrupal} from "@/api";
 
 async function DynamicData({id}: {id: string}) {
   let data;
-
   try {
     // Execute this every time
     await connection();
@@ -21,12 +20,12 @@ async function DynamicData({id}: {id: string}) {
   return <div>Dynamic data: {data.date}</div>;
 }
 
-// export async function generateStaticParams() {
-//   return [{id: "__fake__"}];
-// }
+export async function generateStaticParams() {
+  return [{id: "__fake__"}];
+}
 
 export default async function IdPage({params}: {params: Promise<{id: string}>}) {
-  const {id} = await params;
+  const {id} = await params
 
   // Fetch information for the shell, which will be ISRd while mantaining dynamic data
   const data = await getCachedDataFromDrupal(id);
